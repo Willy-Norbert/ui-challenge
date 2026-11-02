@@ -25,18 +25,37 @@ function SearchIcon() {
   )
 }
 
+function StarIcon() {
+  return (
+    <svg aria-hidden="true" className="popular-icon" viewBox="0 0 16 16">
+      <path d="m8 1.5 1.9 3.9 4.3.6-3.1 3-.8 4.3L8 11.2l-3.8 2.1.7-4.3-3.1-3 4.3-.6L8 1.5Z" />
+    </svg>
+  )
+}
+
+function LawIcon() {
+  return (
+    <svg aria-hidden="true" className="law-icon" fill="none" viewBox="0 0 16 16">
+      <path d="M3 2.5h8.25A1.75 1.75 0 0 1 13 4.25V13H4.75A1.75 1.75 0 0 1 3 11.25v-8.75Z" />
+      <path d="M3 10.5h10" />
+    </svg>
+  )
+}
+
 function TopicCard({ topic }: { topic: Topic }) {
   return (
     <article className="topic-card">
       {topic.isPopular && (
         <span className="popular">
-          <span aria-hidden="true">★</span> Popular
+          <StarIcon />
+          Popular
         </span>
       )}
-      <h2>{topic.title}</h2>
+      <span className="category-tag">{topic.category}</span>
+      <h2 className="topic-title">{topic.title}</h2>
       <p className="topic-summary">{topic.summary}</p>
       <p className="law-reference">
-        <span aria-hidden="true" className="law-icon">▱</span>
+        <LawIcon />
         {topic.lawReference}
       </p>
     </article>
